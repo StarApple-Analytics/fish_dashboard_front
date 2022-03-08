@@ -5,7 +5,7 @@ import { useQuery } from 'react-query'
 import {dashboardFetcher} from 'Common/fetchers'
 const Explore = () => {
 
-  const { data, isLoading, status, error } = useQuery(dashboardFetcher.keys.fetch, ()=> dashboardFetcher.all())
+  const { data, isLoading } = useQuery(dashboardFetcher.keys.fetch, ()=> dashboardFetcher.all())
   const tableheaders = ["id", "species", "height", "length", "weight", "width"];
   
   useEffect(() => {

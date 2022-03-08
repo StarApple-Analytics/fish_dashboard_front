@@ -1,12 +1,7 @@
 import React from "react";
 import { Doughnut } from "react-chartjs-2";
 
-function calculatePoint(i, intervalSize, colorRangeInfo) {
-  var { colorStart, colorEnd, useEndAsStart } = colorRangeInfo;
-  return useEndAsStart
-    ? colorEnd - i * intervalSize
-    : colorStart + i * intervalSize;
-}
+
 
 const DoughnutCard = (props) => {
   const { fishes } = props;
