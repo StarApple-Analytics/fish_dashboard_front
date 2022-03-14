@@ -2,11 +2,13 @@ import React from "react";
 import { Routes } from "react-router-dom";
 
 import {
-ExploreRoutes
+  ExploreRoutes,
+  EstimatorRoutes
 } from "./Views";
 
 const generalRoutes = [
- ExploreRoutes.main,
+  ExploreRoutes.main,
+  EstimatorRoutes.main
 ];
 
 const AppRoutes = () => {

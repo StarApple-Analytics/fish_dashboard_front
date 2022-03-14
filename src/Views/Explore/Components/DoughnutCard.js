@@ -1,26 +1,25 @@
 import React from "react";
 import { Doughnut } from "react-chartjs-2";
+import {interpolateBlues} from "d3-scale-chromatic";
+import {interpolateColors} from 'Common/colorGen'
+const colorScale = interpolateBlues;
 
-
+const colorRangeInfo = {
+  colorStart: 0,
+  colorEnd: 0.65,
+  useEndAsStart: true,
+};
 
 const DoughnutCard = (props) => {
   const { fishes } = props;
 
   const data = {
-    labels: fishes?.map((ele) => ele[0]),
+    labels: fishes?.map((ele) => ele[0].toUpperCase()),
     datasets: [
       {
-        label: "My First Dataset",
+        label: "Fishes Dataset",
         data: fishes?.map((ele) => ele[1]),
-        backgroundColor: [
-          "#7C56BA",
-          "#BFC347",
-          "#98CC9F",
-          "#5DB2C3",
-          "#803517",
-          "#87A151",
-          "#3205F1",
-        ],
+        backgroundColor: interpolateColors(fishes?.length, colorScale, colorRangeInfo),
         hoverOffset: 4,
       },
     ],
@@ -35,8 +34,9 @@ const DoughnutCard = (props) => {
   };
   return (
     <div className="w-full flex flex-col items-start justify-center gap-1 border-gray-100 border-2 rounded-md p-4 hover:shadow-lg transition-all ease-linear duration-100">
-      <div className="font-semibold text-lg text-gray-900">
-        Fish Species by numbers
+      <div className="font-semibold text-lg text-gray-900">Fish Species</div>
+      <div className=" font-light text-xs text-gray-500 uppercase">
+        Organized By Numbers (Quantity)
       </div>
       <div className="h-full w-full self-center">
         <Doughnut

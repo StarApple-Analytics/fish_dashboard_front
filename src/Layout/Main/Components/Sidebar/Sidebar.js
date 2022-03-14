@@ -1,7 +1,8 @@
 import React from "react";
 import { RiBubbleChartFill } from "react-icons/ri";
 import { NavLink, useLocation } from "react-router-dom";
-import {IoFishSharp} from 'react-icons/io5'
+import { IoFishSharp } from 'react-icons/io5'
+import {AiFillCalculator} from 'react-icons/ai'
 
 const Sidebar = () => {
   const location = useLocation();
@@ -15,6 +16,10 @@ const Sidebar = () => {
           path: "/",
           title: "Summary",
         },
+        { icon: AiFillCalculator,
+          path: "/estimator",
+          title: "Weight Estimator",
+        }
       ],
     },
 

@@ -6,7 +6,7 @@ const main = (props) => {
   return (
     <div className="w-full h-full flex flex-row bg-white scroll-smooth ">
       <Sidebar />
-      <main className="w-2/3">
+      <main className="lg:w-4/5 md:w-1/5 sm:w-1/5">
         <Suspense fallback={<Fallback />}>{children}</Suspense>
       </main>
     </div>
