@@ -10,7 +10,7 @@ import { dashboardFetcher, fishFetcher } from "Common/fetchers";
 import Files from "Assets/static/files.png";
 import Template from "Assets/fishes_upload_template.xlsx";
 const Explore = () => {
-  let [uploadModalOpen, setUploadModalOpen] = useState(true);
+  let [uploadModalOpen, setUploadModalOpen] = useState(false);
   const { data, isLoading } = useQuery(dashboardFetcher.keys.fetch, () =>
     dashboardFetcher.all()
   );

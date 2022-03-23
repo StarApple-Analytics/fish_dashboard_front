@@ -32,17 +32,15 @@ const Estimator = () => {
 
   return (
     <div className="grid grid-row gap-8 relative w-full ml-11 mt-3 mb-12">
-      <div className="flex flex-col gap-1 col-span-full  ">
-        <div className="text-md font-bold text-gray-500">
-          Fish Weight Estimator
-        </div>
-        <div className="text-sm font-light text-gray-500 w-1/4">
-          Provide the following inputs below for a fish to be passed to the
-          model for weight estimation
-        </div>
+      <div className="text-md font-bold text-gray-500">
+        Fish Weight Estimator
       </div>
 
       <div className="w-full flex flex-row justify-center items-center">
+        <div className="font-light p-8 bg-blue-500 text-white text-2xl rounded-xl w-1/4 text-center">
+          Provide the following inputs below for a fish to be passed to the
+          model for weight estimation
+        </div>
         <div className="h-auto w-1/3">
           <img src={DataProcessingIMG} className="" alt="Data Processing" />
         </div>
@@ -50,11 +48,13 @@ const Estimator = () => {
       <div className="flex flex-col justify-center items-center w-full">
         <input
           type="text"
-          placeholder={Math.round(Math.random() * (1 - 250) + 250)}
+          placeholder="36"
           disabled
-          value={`${Math.round(predictionResult?.data?.weight, 2) ?? "NA"}${
-            predictionResult?.data?.weight ? "g" : ""
-          }`}
+          value={`${
+            predictionResult?.data?.weight
+              ? Math.round(predictionResult?.data?.weight, 2)
+              : "?"
+          }${predictionResult?.data?.weight ? "g" : ""}`}
           id="weight"
           className="animate-pulse border font-black border-b-slate-500 placeholder:text-blue-200 text-blue-500 border-b-4 text-7xl border-x-white w-72 text-center border-t-white outline-none"
         />
@@ -72,7 +72,7 @@ const Estimator = () => {
           <div className="flex flex-col justify-center items-center w-full">
             <input
               type="text"
-              placeholder={Math.round(Math.random() * (1 - 250) + 250)}
+              placeholder="33"
               onChange={handleChange}
               name="height"
               value={formState.height}
@@ -94,7 +94,7 @@ const Estimator = () => {
           <div className="flex flex-col justify-center items-center w-full">
             <input
               type="text"
-              placeholder={Math.round(Math.random() * (1 - 250) + 250)}
+              placeholder="26"
               onChange={handleChange}
               name="width"
               value={formState.width}
@@ -115,7 +115,7 @@ const Estimator = () => {
           <div className="flex flex-col justify-center items-center w-full">
             <input
               type="text"
-              placeholder={Math.round(Math.random() * (1 - 250) + 250)}
+              placeholder="23"
               onChange={handleChange}
               name="verticalLength"
               value={formState.verticalLength}
@@ -136,7 +136,7 @@ const Estimator = () => {
           <div className="flex flex-col justify-center items-center w-full">
             <input
               type="text"
-              placeholder={Math.round(Math.random() * (1 - 250) + 250)}
+              placeholder="47"
               onChange={handleChange}
               name="horizonLength"
               value={formState.horizonLength}
@@ -157,7 +157,7 @@ const Estimator = () => {
           <div className="flex flex-col justify-center items-center w-full">
             <input
               type="text"
-              placeholder={Math.round(Math.random() * (1 - 250) + 250)}
+              placeholder="31"
               onChange={handleChange}
               name="diagLength"
               value={formState.diagLength}
@@ -188,7 +188,9 @@ const Estimator = () => {
           type="button"
           className=" bg-blue-800 text-white uppercase w-1/4 py-6 rounded-lg font-semibold text-xl disabled:bg-blue-300 flex flex-row gap-3 justify-center items-center"
         >
-          {isLoading && <AiOutlineLoading3Quarters className="animate-spin w-8 h-8" />}
+          {isLoading && (
+            <AiOutlineLoading3Quarters className="animate-spin w-8 h-8" />
+          )}
           Estimate
         </button>
       </div>
