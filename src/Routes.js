@@ -3,12 +3,14 @@ import { Routes } from "react-router-dom";
 
 import {
   ExploreRoutes,
-  EstimatorRoutes
+  EstimatorRoutes,
+  DocsRoutes
 } from "./Views";
 
 const generalRoutes = [
   ExploreRoutes.main,
-  EstimatorRoutes.main
+  EstimatorRoutes.main,
+  DocsRoutes.main
 ];
 
 const AppRoutes = () => {

@@ -3,6 +3,7 @@ import { RiBubbleChartFill } from "react-icons/ri";
 import { NavLink, useLocation } from "react-router-dom";
 import { IoFishSharp } from 'react-icons/io5'
 import {AiFillCalculator} from 'react-icons/ai'
+import { IoIosDocument } from "react-icons/io";
 
 const Sidebar = () => {
   const location = useLocation();
@@ -16,17 +17,27 @@ const Sidebar = () => {
           path: "/",
           title: "Summary",
         },
-        { icon: AiFillCalculator,
+        {
+          icon: AiFillCalculator,
           path: "/estimator",
           title: "Weight Estimator",
-        }
+        },
       ],
     },
-
+    {
+      section: "Docmentation",
+      routes: [
+        {
+          icon: IoIosDocument,
+          path: "/tutorial",
+          title: "Get Started",
+        },
+      ],
+    },
   ];
 
   return (
-    <div className="max-w-2/12 h-screen sticky top-0 px-4 py-12 md:px-9 lg:px-9  flex flex-col gap-16 bg-blue-700 drop-shadow-xl ring rounded-r-3xl">
+    <div className="w-1/6 h-screen sticky top-0 px-4 py-12 md:flex flex-col gap-16 bg-blue-800 drop-shadow-xl ring rounded-r-xl hidden lg:flexl">
       <div className="flex flex-row gap-2 justify-center md:justify-start text-white items-center">
         <IoFishSharp className="w-10 h-10 font-semibold" />
         <div className="hidden md:block md:text-2xl font-semibold">Fishes</div>
